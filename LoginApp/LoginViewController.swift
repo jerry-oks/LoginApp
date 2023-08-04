@@ -10,25 +10,34 @@ import UIKit
 final class LoginViewController: UIViewController {
     @IBOutlet private var loginTF: UITextField!
     @IBOutlet private var passwordTF: UITextField!
-    
+        
     private let login = "User"
     private let password = String(Int.random(in: 1000...9999))
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let mainVC = segue.destination as? MainViewController
-        mainVC?.username = loginTF.text ?? ""
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    
+        super .touchesBegan(touches, with: event)
     }
     
-    @IBAction private func loginButtonTapped() {
-        if loginTF.text != login || passwordTF.text != password {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard loginTF.text == login, passwordTF.text == password else {
             showAlert(
                 withTitle: "Что-то пошло не так",
                 message: "Неверный логин или пароль",
                 buttonTitle: "Исправить",
                 andButtonActions: .deletePassword
             )
+            return false
         }
+        return true
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let welcomeVC = segue.destination as? WelcomeViewController
+        welcomeVC?.username = loginTF.text ?? ""
+    }
+
     @IBAction private func forgotLoginButtonTapped() {
         showAlert(
             withTitle: "Забыли логин?",
