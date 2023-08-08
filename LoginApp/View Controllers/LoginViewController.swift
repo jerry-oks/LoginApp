@@ -11,17 +11,23 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var loginTF: UITextField!
     @IBOutlet private var passwordTF: UITextField!
         
-    private let login = "User"
-    private let password = String(Int.random(in: 1000...9999))
+    private let user = User.getUser()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
         view.endEditing(true)
+    }
     
-        super .touchesBegan(touches, with: event)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loginTF.text = user.login
+        passwordTF.text = user.password
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard loginTF.text == login, passwordTF.text == password else {
+        guard loginTF.text == user.login, passwordTF.text == user.password else {
             showAlert(
                 withTitle: "Что-то пошло не так",
                 message: "Неверный логин или пароль",
@@ -34,24 +40,32 @@ final class LoginViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.username = loginTF.text ?? ""
+        let tabBarController = segue.destination as? UITabBarController
+        tabBarController?.viewControllers?.forEach { viewController in
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.user = user
+            } else if let navigationVC = viewController as? UINavigationController {
+                let personVC = navigationVC.topViewController as? PersonViewController
+                personVC?.title = "\(user.person.name) \(user.person.surname)"
+                personVC?.person = user.person
+            }
+        }
     }
 
     @IBAction private func forgotLoginButtonTapped() {
         showAlert(
             withTitle: "Забыли логин?",
-            message: "Ваш логин: \(login)",
+            message: "Ваш логин: \(user.login)",
             buttonTitle: "Понятно",
-            andButtonActions: .none
+            andButtonActions: .insertLogin
         )
     }
     @IBAction private func forgotPasswordButtonTapped() {
         showAlert(
             withTitle: "Забыли пароль?",
-            message: "Ваш пароль: \(password)",
+            message: "Ваш пароль: \(user.password)",
             buttonTitle: "Понятно",
-            andButtonActions: .none
+            andButtonActions: .insertPassword
         )
     }
     
@@ -70,10 +84,9 @@ final class LoginViewController: UIViewController {
             if !buttonActions.contains(.none) {
                 buttonActions.forEach { buttonAction in
                     switch buttonAction {
-                    case .deleteLogin: self.loginTF.text = ""
                     case .deletePassword: self.passwordTF.text = ""
-                    case .insertLogin: self.loginTF.text = self.login
-                    case .insertPassword: self.passwordTF.text = self.password
+                    case .insertLogin: self.loginTF.text = self.user.login
+                    case .insertPassword: self.passwordTF.text = self.user.password
                     default: return
                     }
                 }
@@ -88,7 +101,6 @@ final class LoginViewController: UIViewController {
 // MARK: - Button Actions Enumeration
 private extension UIAlertAction {
     enum buttonAction {
-        case deleteLogin
         case deletePassword
         case insertLogin
         case insertPassword

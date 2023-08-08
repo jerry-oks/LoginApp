@@ -11,15 +11,17 @@ final class WelcomeViewController: UIViewController {
     
     @IBOutlet private var helloLabel: UILabel!
     @IBOutlet private var helloEmojiLabel: UILabel!
+    @IBOutlet var personLabel: UILabel!
     
-    var username: String!
+    var user: User!
     
     private let helloEmoji = ["👐", "🙌", "✌️", "✋", "🤚", "🖐️", "🖖", "👋"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        helloLabel.text = "Привет, \(username ?? "пользователь")!"
+        helloLabel.text = "Привет, \(user.name)!"
         helloEmojiLabel.text = helloEmoji.randomElement()
+        personLabel.text = "Кто такой \(user.person.name) \(user.person.surname)? ↴"
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B796BC12A82501100AE8365 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B796BC02A82501100AE8365 /* User.swift */; };
+		3B796BC42A825D8200AE8365 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B796BC32A825D8200AE8365 /* PersonViewController.swift */; };
+		3B796BC62A827FCD00AE8365 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B796BC52A827FCD00AE8365 /* BioViewController.swift */; };
 		3BDACFD82A7CCB05004740F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDACFD72A7CCB05004740F1 /* AppDelegate.swift */; };
 		3BDACFDA2A7CCB05004740F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDACFD92A7CCB05004740F1 /* SceneDelegate.swift */; };
 		3BDACFDC2A7CCB05004740F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDACFDB2A7CCB05004740F1 /* LoginViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B796BC02A82501100AE8365 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3B796BC32A825D8200AE8365 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		3B796BC52A827FCD00AE8365 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		3BDACFD42A7CCB05004740F1 /* LoginApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDACFD72A7CCB05004740F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BDACFD92A7CCB05004740F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B796BBD2A824D2700AE8365 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3BDACFD72A7CCB05004740F1 /* AppDelegate.swift */,
+				3BDACFD92A7CCB05004740F1 /* SceneDelegate.swift */,
+				3BDACFE52A7CCB06004740F1 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3B796BBE2A824D3100AE8365 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BDACFDB2A7CCB05004740F1 /* LoginViewController.swift */,
+				3BDACFEB2A7CCBA7004740F1 /* WelcomeViewController.swift */,
+				3B796BC32A825D8200AE8365 /* PersonViewController.swift */,
+				3B796BC52A827FCD00AE8365 /* BioViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3B796BBF2A824D4500AE8365 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3BDACFDD2A7CCB05004740F1 /* Main.storyboard */,
+				3BDACFE22A7CCB06004740F1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3B796BC22A82501600AE8365 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B796BC02A82501100AE8365 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3BDACFCB2A7CCB05004740F1 = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +102,11 @@
 		3BDACFD62A7CCB05004740F1 /* LoginApp */ = {
 			isa = PBXGroup;
 			children = (
-				3BDACFD72A7CCB05004740F1 /* AppDelegate.swift */,
-				3BDACFD92A7CCB05004740F1 /* SceneDelegate.swift */,
-				3BDACFDB2A7CCB05004740F1 /* LoginViewController.swift */,
-				3BDACFEB2A7CCBA7004740F1 /* WelcomeViewController.swift */,
-				3BDACFDD2A7CCB05004740F1 /* Main.storyboard */,
+				3B796BBD2A824D2700AE8365 /* App */,
+				3B796BC22A82501600AE8365 /* Models */,
+				3B796BBE2A824D3100AE8365 /* View Controllers */,
+				3B796BBF2A824D4500AE8365 /* Storyboards */,
 				3BDACFE02A7CCB06004740F1 /* Assets.xcassets */,
-				3BDACFE22A7CCB06004740F1 /* LaunchScreen.storyboard */,
-				3BDACFE52A7CCB06004740F1 /* Info.plist */,
 			);
 			path = LoginApp;
 			sourceTree = "<group>";
@@ -141,9 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B796BC62A827FCD00AE8365 /* BioViewController.swift in Sources */,
 				3BDACFDC2A7CCB05004740F1 /* LoginViewController.swift in Sources */,
+				3B796BC42A825D8200AE8365 /* PersonViewController.swift in Sources */,
 				3BDACFD82A7CCB05004740F1 /* AppDelegate.swift in Sources */,
 				3BDACFDA2A7CCB05004740F1 /* SceneDelegate.swift in Sources */,
+				3B796BC12A82501100AE8365 /* User.swift in Sources */,
 				3BDACFEC2A7CCBA7004740F1 /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -293,13 +337,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9G337EK28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginApp/Info.plist;
+				INFOPLIST_FILE = LoginApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,13 +369,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9G337EK28;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LoginApp/Info.plist;
+				INFOPLIST_FILE = LoginApp/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
